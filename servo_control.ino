@@ -48,7 +48,9 @@ int rotspeedy;
 // automated servo
 bool automated = false;
 
-
+// 
+float x_position_a = min_x + (max_x - min_x)/2;
+float y_position_a = min_y + (max_y - min_y)/2;
 
 void setup() {
   int status;
@@ -127,32 +129,32 @@ void servoLogic(){
     commandString="";
     movement_time = random(3,6);
     for(pos=0; pos < movement_time; pos+=1){
-      y_position = y_position-5;
-      y_servo.write(y_position);
+      y_position_a = y_position_a-5;
+      y_servo.write(y_position_a);
     }
     delay(5);
   } else if (commandString.equals("D")){
     commandString="";
     movement_time = random(3,6);
     for(pos=0; pos < movement_time; pos+=1){
-      y_position = y_position+5;
-      y_servo.write(y_position);
+      y_position_a = y_position_a+5;
+      y_servo.write(y_position_a);
     }
     delay(5);
   } else if (commandString.equals("R")){
     commandString="";
     movement_time = random(4,10);
     for(pos=0; pos < movement_time; pos+=1){
-      x_position = x_position-5;
-      x_servo.write(x_position);
+      x_position_a = x_position_a-5;
+      x_servo.write(x_position_a);
     }
     delay(5);
   } else if (commandString.equals("L")){
     commandString="";
     movement_time = random(4,10);
     for(pos=0; pos < movement_time; pos+=1){
-      x_position = x_position+5;
-      x_servo.write(x_position);
+      x_position_a = x_position_a+5;
+      x_servo.write(x_position_a);
     }
     delay(5);
   } else if (commandString.equals("Z")){
